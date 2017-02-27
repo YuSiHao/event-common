@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
 	<display-name>EventCommon</display-name>
-	
+
 	<!-- spring bean configuration -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
@@ -18,15 +18,24 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-	<!-- spring servlet handler-->
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>/WEB-INF/classes/log4j/LOCAL-SHOP.log4j.properties</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+
+	<!-- spring servlet handler -->
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
-        <description>spring bean dispatcher configuration</description>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>classpath*:conf/event-*.xml</param-value>
-    </init-param>
+			<description>spring bean dispatcher configuration</description>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath*:conf/event-*.xml</param-value>
+		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
@@ -34,7 +43,7 @@
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+
 	<!-- default webapp root html page -->
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
