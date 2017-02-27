@@ -7,7 +7,7 @@
 	<name>event-common</name>
 
 	<properties>
-		<junit.version>4.11</junit.version>
+		<junit.version>4.12</junit.version>
 		<spring.version>4.3.0.RELEASE</spring.version>
 		<java.version>1.8</java.version>
 		<log4j2.version>2.5</log4j2.version>
@@ -88,13 +88,13 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.7.21</version>
+			<version>1.7.5</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.2</version>
+			<version>1.7.5</version>
 		</dependency>
 		
 		<dependency>
@@ -102,6 +102,26 @@
 			<artifactId>maven-project</artifactId>
 			<version>2.0.6</version>
 		</dependency>
+		
+		<!-- MongoDB -->
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>3.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>1.7.2.RELEASE</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>slf4j-api</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		
 
 	</dependencies>
 
