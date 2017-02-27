@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>EventCommon</display-name>
+	
+	<!-- spring bean configuration -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+          classpath*:conf/*.xml
+    </param-value>
+	</context-param>
+
+	<!-- listen the start of tomcat and load spring bean configuration -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- spring servlet handler-->
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+        <description>spring bean dispatcher configuration</description>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath*:conf/event-*.xml</param-value>
+    </init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	<!-- default webapp root html page -->
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/ping.html</url-pattern>
+	</servlet-mapping>
+
+
+</web-app>
