@@ -1,15 +1,13 @@
-package com.ysh.event.common.model;
+package com.ysh.event.common.domain;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.springframework.data.mongodb.core.mapping.Document;
+public class AppEvent extends BaseModel implements Serializable {
 
-@Document(collection = "appevent")
-public class AppEvent extends BaseModel {
+	private static final long serialVersionUID = -728911735634977070L;
 	private String type;
 	private String status;
 	private String description;
@@ -27,7 +25,15 @@ public class AppEvent extends BaseModel {
 	private Map<String, Object> payload = new HashMap<String, Object>();
 
 	// save the event process workflow
-	private List<SubEvent> eventTrackList = new ArrayList<SubEvent>();
+	private String eventTrackId;
+
+	public String getEventTrackId() {
+		return eventTrackId;
+	}
+
+	public void setEventTrackId(String eventTrackId) {
+		this.eventTrackId = eventTrackId;
+	}
 
 	private String notifyStatus;
 
@@ -140,14 +146,6 @@ public class AppEvent extends BaseModel {
 
 	public void setPayload(Map<String, Object> payload) {
 		this.payload = payload;
-	}
-
-	public List<SubEvent> getEventTrackList() {
-		return eventTrackList;
-	}
-
-	public void setEventTrackList(List<SubEvent> eventTrackList) {
-		this.eventTrackList = eventTrackList;
 	}
 
 	public String getNotifyStatus() {

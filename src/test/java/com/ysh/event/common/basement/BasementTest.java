@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 public class BasementTest {
 	
 	private final static Logger log = LoggerFactory.getLogger(BasementTest.class);
@@ -13,4 +14,6 @@ public class BasementTest {
 		String testok = "ok";
 		log.info("test log.info,{}",testok);
 	}
+	
+	
 }
