@@ -1,22 +1,31 @@
 package com.ysh.event.common.manager.impl;
 
-import java.util.Map;
+
+
+import java.util.List;
+
+import org.springframework.util.CollectionUtils;
 
 import com.ysh.event.common.manager.AppConfigManager;
 import com.ysh.event.common.model.AppConfig;
+import com.ysh.event.common.utils.ConfigUtils;
 
-public class AppConfigManagerImpl implements AppConfigManager {
+public class AppConfigManagerImpl extends AbstractGenericManagerImpl implements AppConfigManager {
 	
-	@Override
-	public Map<String, Object> executeCommands(String[] commands) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public void loadAppConfigToMemory() throws Exception {
-		// TODO Auto-generated method stub
-
+		if(logger.isDebugEnabled()){
+			logger.debug("Start exectuet method loadAppConfigToMemory");
+		}
+		if(CollectionUtils.isEmpty(ConfigUtils.appConfigMap)){
+			List<AppConfig> appConfigList = appConfigDao.findAll();
+			if (logger.isDebugEnabled()) {
+				logger.debug("appConfigList is [" + appConfigList + "]");
+			}
+			
+		}
 	}
 
 	@Override
