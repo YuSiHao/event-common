@@ -5,9 +5,11 @@ import com.ysh.event.common.model.AppConfig;
 
 
 public interface AppConfigDao extends GenericDao<AppConfig>{
+	
 	AppConfig save(AppConfig appConfig);
 
 	List<AppConfig> findAll();
 
 	void delete(AppConfig appConfig);
+	
 }

@@ -5,7 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+
+@Document(collection = "appconfig")
 public class AppConfig extends BaseModel {
 	private String key;
 	private List<Map<String, Object>> value = new ArrayList<Map<String, Object>>();

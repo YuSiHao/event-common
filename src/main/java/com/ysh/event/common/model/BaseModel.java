@@ -2,12 +2,30 @@ package com.ysh.event.common.model;
 
 import java.util.Date;
 
+import org.springframework.data.annotation.Id;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.ysh.event.common.util.json.IsoDateDeserializer;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+
 public class BaseModel {
 	
+	@Id
+	@JsonProperty(value = "_id")
 	protected String id;
 	protected String createdBy;
 	protected String modifiedBy;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS-hh:mm")
+	@JsonDeserialize(using = IsoDateDeserializer.class)
 	protected Date createdDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS-hh:mm")
+	@JsonDeserialize(using = IsoDateDeserializer.class)
 	protected Date modifiedDate;
 	
 	public String getId() {
