@@ -18,4 +18,9 @@ public class Constants {
 
 	final public static String EVENT_END_FLAG_PENDING = "EVENT_END_FLAG_PENDING";
 	final public static String EVENT_END_FLAG_FINISHED = "EVENT_END_FLAG_FINISHED";
+
+	// input param
+	final public static String INPUT_METHOD = "INPUT_METHOD";
+	final public static String INPUT_IS_FORCE = "INPUT_IS_FORCE";
+	final public static String INPUT_CONTENT = "INPUT_CONTENT";
 }
