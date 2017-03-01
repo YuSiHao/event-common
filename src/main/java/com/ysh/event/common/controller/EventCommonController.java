@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ysh.event.common.dao.AppConfigDao;
+import com.ysh.event.common.dao.AppConfigMybatisDao;
 import com.ysh.event.common.model.AppConfig;
 
 @RestController
@@ -23,6 +24,9 @@ public class EventCommonController {
 
 	@Autowired
 	protected AppConfigDao appConfigDao;
+	
+	@Autowired
+	protected AppConfigMybatisDao appConfigMybatisDao;
 
 	@RequestMapping(value = { "", "/" }, produces = "text/html; charset=utf-8")
 	public ModelAndView visitEventCommonPage(@RequestParam(defaultValue = "") String code) throws IOException {
@@ -34,11 +38,21 @@ public class EventCommonController {
 	}
 
 	@RequestMapping(value = "/AppConfigDao", produces = "application/xml; charset=utf-8", method = RequestMethod.GET)
-	public List<AppConfig> visitEventCommonPage() throws IOException {
+	public List<AppConfig> findAllAppConfigs() throws IOException {
 		String AppConfigDao = "AppConfigDao";
 		log.info("test for:{}", AppConfigDao);
 		log.debug("test for:{}", AppConfigDao);
 		List<AppConfig> AppConfigs = appConfigDao.findAll();
+		log.info("AppConfigs are,{}", AppConfigs);
+		return AppConfigs;
+	}
+	
+	@RequestMapping(value = "/AppConfigMybatisDao", produces = "application/xml; charset=utf-8", method = RequestMethod.GET)
+	public List<com.ysh.event.common.domain.AppConfig> findAllAppMybatisConfigs() throws IOException {
+		String AppConfigMybatisDao = "AppConfigMybatisDao";
+		log.info("test for:{}", AppConfigMybatisDao);
+		log.debug("test for:{}", AppConfigMybatisDao);
+		List<com.ysh.event.common.domain.AppConfig> AppConfigs = appConfigMybatisDao.findAll();
 		log.info("AppConfigs are,{}", AppConfigs);
 		return AppConfigs;
 	}
