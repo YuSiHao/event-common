@@ -12,6 +12,7 @@
 		<java.version>1.8</java.version>
 		<log4j2.version>2.5</log4j2.version>
 		<jackson.fasterxml.version>2.7.0</jackson.fasterxml.version>
+		<freemarker.version>2.3.22</freemarker.version>
 	</properties>
 
 	<dependencies>
@@ -34,7 +35,7 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-	
+
 		<!-- mysql jdbc -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -181,7 +182,12 @@
 			<version>${jackson.fasterxml.version}</version>
 		</dependency>
 
-
+		<!-- freemarker -->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>${freemarker.version}</version>
+		</dependency>
 
 	</dependencies>
 

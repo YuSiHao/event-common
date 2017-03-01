@@ -4,7 +4,7 @@ import com.ysh.event.common.model.AppConfig;
 
 public interface AppConfigManager extends GenericManager {
 
-	void loadAppConfigToMemory() throws Exception;
+	void loadConfigToMemory() throws Exception;
 
 	void reloadConfigFromDb() throws Exception;
 

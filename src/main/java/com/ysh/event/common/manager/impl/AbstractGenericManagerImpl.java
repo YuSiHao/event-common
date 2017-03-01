@@ -21,4 +21,9 @@ public class AbstractGenericManagerImpl implements GenericManager{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public void retryEventById(String eventId) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -8,10 +8,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 public class CommonUtils {
 	
 	protected static Logger logger = LoggerFactory.getLogger(CommonUtils.class);
+	
+	final static ObjectMapper mapper = new ObjectMapper();
 	
 	@SuppressWarnings("rawtypes")
 	public static boolean isEmpty(Object object) {
@@ -47,5 +51,10 @@ public class CommonUtils {
 		}
 
 		return false;
+	}
+	
+	public static <T> T convertMapToPojo(Map<String, Object> map, Class<T> pojoClass) {
+		T pojo = mapper.convertValue(map, pojoClass);
+		return pojo;
 	}
 }
