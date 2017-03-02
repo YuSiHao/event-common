@@ -24,9 +24,10 @@ public class EventCommonController {
 
 	@Autowired
 	protected AppConfigDao appConfigDao;
-	
+
 	@Autowired
 	protected AppConfigMybatisDao appConfigMybatisDao;
+
 
 	@RequestMapping(value = { "", "/" }, produces = "text/html; charset=utf-8")
 	public ModelAndView visitEventCommonPage(@RequestParam(defaultValue = "") String code) throws IOException {
@@ -37,7 +38,7 @@ public class EventCommonController {
 		return candidatePage;
 	}
 
-	@RequestMapping(value = "/AppConfigDao", produces = "application/xml; charset=utf-8", method = RequestMethod.GET)
+	@RequestMapping(value = "/AppConfigDao", produces = "application/json; charset=utf-8", method = RequestMethod.GET)
 	public List<AppConfig> findAllAppConfigs() throws IOException {
 		String AppConfigDao = "AppConfigDao";
 		log.info("test for:{}", AppConfigDao);
@@ -46,8 +47,8 @@ public class EventCommonController {
 		log.info("AppConfigs are,{}", AppConfigs);
 		return AppConfigs;
 	}
-	
-	@RequestMapping(value = "/AppConfigMybatisDao", produces = "application/xml; charset=utf-8", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/AppConfigMybatisDao", produces = "application/json; charset=utf-8", method = RequestMethod.GET)
 	public List<com.ysh.event.common.domain.AppConfig> findAllAppMybatisConfigs() throws IOException {
 		String AppConfigMybatisDao = "AppConfigMybatisDao";
 		log.info("test for:{}", AppConfigMybatisDao);
@@ -56,5 +57,6 @@ public class EventCommonController {
 		log.info("AppConfigs are,{}", AppConfigs);
 		return AppConfigs;
 	}
+
 
 }

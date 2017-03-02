@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import com.ysh.event.common.dao.AppEventDao;
@@ -22,6 +23,7 @@ import com.ysh.event.common.utils.ConfigUtils;
 import com.ysh.event.common.utils.Constants;
 import com.ysh.event.common.utils.FreemarkerUtils;
 
+@Component
 public class AppEventManagerImpl extends AbstractGenericManagerImpl implements AppEventManager {
 
 	@Autowired

@@ -58,6 +58,11 @@ public class CommonUtils {
 		return pojo;
 	}
 	
+	public static <T> T generatePojoFromString(String content, Class<T> pojoClass) throws Exception {
+		T pojo = mapper.readValue(content, pojoClass);
+		return pojo;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public static Map<String, Object> convertPojoToMap(Object pojo) {
 		Map<String, Object> map = mapper.convertValue(pojo, Map.class);
