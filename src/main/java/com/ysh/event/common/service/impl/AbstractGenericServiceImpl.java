@@ -29,14 +29,12 @@ public abstract class AbstractGenericServiceImpl implements GenericService {
 
 	@Override
 	public Map<String, Object> process(Map<String, Object> input) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return process(null, input, true);
 	}
 
 	@Override
 	public Map<String, Object> process(AppEvent appEvent) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return process(appEvent, null, false);
 	}
 
 	protected Map<String, Object> process(AppEvent appEvent, Map<String, Object> input, boolean isCreateNewEvent)

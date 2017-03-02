@@ -57,4 +57,10 @@ public class CommonUtils {
 		T pojo = mapper.convertValue(map, pojoClass);
 		return pojo;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public static Map<String, Object> convertPojoToMap(Object pojo) {
+		Map<String, Object> map = mapper.convertValue(pojo, Map.class);
+		return map;
+	}
 }

@@ -23,4 +23,7 @@ public class Constants {
 	final public static String INPUT_METHOD = "INPUT_METHOD";
 	final public static String INPUT_IS_FORCE = "INPUT_IS_FORCE";
 	final public static String INPUT_CONTENT = "INPUT_CONTENT";
+
+	final public static String OUTPUT_RESULT = "OUTPUT_RESULT";
+	final public static String OUTPUT_SUCESS = "SUCCESS";
 }

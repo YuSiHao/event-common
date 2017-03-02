@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ysh.event.common.dao.AppConfigDao;
+import com.ysh.event.common.dao.AppErrorDao;
+import com.ysh.event.common.dao.AppEventDao;
 import com.ysh.event.common.manager.GenericManager;
 
 
@@ -16,6 +18,12 @@ public class AbstractGenericManagerImpl implements GenericManager{
 	
 	@Autowired
 	protected AppConfigDao appConfigDao;
+	
+	@Autowired
+	protected AppEventDao appEventDao;
+	
+	@Autowired
+	protected AppErrorDao appErrorDao;
 	
 	public Map<String, Object> executeCommands(String[] commands) throws Exception {
 		// TODO Auto-generated method stub
