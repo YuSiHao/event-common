@@ -29,7 +29,7 @@ public class AppErrorManagerImpl extends AbstractGenericManagerImpl implements A
 			age = (AbstractGenericException) e;
 			isSaveToDb = age.isSavedToDb();
 		}
-		if (isSaveToDb) {
+		if (isSaveToDb) { // default is false
 			AppError appError = null;
 			if (appEvent != null) {
 				// check if can find existing error with same event

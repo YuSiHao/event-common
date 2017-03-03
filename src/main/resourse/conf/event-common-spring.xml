@@ -11,6 +11,8 @@
 
 	<context:component-scan base-package="com.ysh.event.common.*" />
 
+	<bean id="configUtils" class="com.ysh.event.common.utils.ConfigUtils"/>
+	
 	<mvc:annotation-driven>
 		<mvc:message-converters>
 			<bean
