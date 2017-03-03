@@ -32,8 +32,8 @@ public class AppEventManagerImpl extends AbstractGenericManagerImpl implements A
 	@Override
 	public AppEvent generateNewEvent(String serviceHandler, Map<String, Object> input) throws Exception {
 		if (logger.isDebugEnabled()) {
-			logger.debug("Start exectuet method generateNewEvent with serviceHandler ", serviceHandler);
-			logger.debug("Input is ", input);
+			logger.debug("Start exectuet method generateNewEvent with serviceHandler {}", serviceHandler);
+			logger.debug("Input is {}", input);
 		}
 		EventConfig eventConfig = ConfigUtils.getEventConfigByServiceHandler(serviceHandler);
 		AppEvent appEvent = new AppEvent();

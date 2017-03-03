@@ -12,7 +12,7 @@ import com.ysh.event.common.utils.Constants;
 import com.ysh.event.common.utils.DataValidationUtils;
 
 @Component
-public class CatalogServiceImpl extends AbstractGenericServiceImpl implements CatalogService{
+public class CatalogServiceImpl extends AbstractGenericServiceImpl implements CatalogService {
 
 	public String eventListener(Map<String, Object> inputPayload) throws Exception {
 		if (logger.isDebugEnabled()) {
@@ -44,8 +44,8 @@ public class CatalogServiceImpl extends AbstractGenericServiceImpl implements Ca
 		// generate output
 		Map<String, Object> output = new HashMap<String, Object>();
 
-		output.put("result", "Finished CatalogServiceImpl!");
-		return null;
+		output.put("OUTPUT_RESULT", "Finished CatalogServiceImpl!");
+		return output;
 	}
 
 }
