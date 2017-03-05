@@ -9,13 +9,13 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_NULL)
 public class EventConfig {
-	
+
 	private String type;
 	private String serviceHandler;
 	// could be contants EVENT_PENDING, EVENT_FINISHED, actual serviceImpl
 	// name
 	private String nextServiceHandler;
-	// freemarker template to generate priority 
+	// freemarker template to generate priority
 	private String priorityGenerator;
 	// freemarker template to generate executeTime
 	private String executeTimeGenerator;
