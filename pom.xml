@@ -37,7 +37,7 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-		<!-- mysql jdbc -->
+		<!-- mysql-->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -120,6 +120,8 @@
 			<artifactId>mongo-java-driver</artifactId>
 			<version>3.0.3</version>
 		</dependency>
+		
+		<!-- for MongoDB (jdbc)-->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-mongodb</artifactId>
@@ -132,7 +134,7 @@
 			</exclusions>
 		</dependency>
 
-		<!-- for myBatis -->
+		<!-- for myBatis (jdbc)-->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
