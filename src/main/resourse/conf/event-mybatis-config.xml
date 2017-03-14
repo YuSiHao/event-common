@@ -6,7 +6,8 @@
             http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
             http://www.springframework.org/schema/context 
             http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-
+	
+	<!-- get connection -->
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${jdbc.driverClassName}" />
@@ -17,11 +18,13 @@
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-
+	
+	<!-- get statement for SQL -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-
+	
+	<!-- get result and mapping model -->
 	<bean id="appConfigMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.ysh.event.common.mapper.AppConfigMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
