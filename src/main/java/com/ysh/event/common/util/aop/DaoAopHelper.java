@@ -2,6 +2,7 @@ package com.ysh.event.common.util.aop;
 
 import java.util.Date;
 
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -19,14 +20,19 @@ import com.ysh.event.common.utils.CommonUtils;
 @Component
 public class DaoAopHelper {
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
-
-	@Pointcut("execution( * com.ysh.event.common.dao.impl.*.save(..))")
+	//@Pointcut("execution( * com.ysh.event.*.dao.impl.*.save(..))")
+	@Pointcut("execution(* com.ysh.event.common.dao.AppEventDao.save(..))")
 	public void savePointCut() {
 	}
 
 	@Before("savePointCut() &&" + "args(t,..)")
 	public void beforeSave(BaseModel t) {
 		setIdAndAuditInfoForPojo(t);
+	}
+	
+	@After("savePointCut() && " + "args(t,..)")
+	public void afterSave(BaseModel t) {
+		System.out.println("aop after save");
 	}
 
 	@Pointcut("execution(* com.hbo.event.common.dao.impl.*.findAndModify(..))")

@@ -1,7 +1,9 @@
 package com.ysh.event.common.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +16,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ysh.event.common.dao.AppConfigDao;
 import com.ysh.event.common.dao.AppConfigMybatisDao;
+import com.ysh.event.common.dao.AppEventDao;
 import com.ysh.event.common.model.AppConfig;
+import com.ysh.event.common.model.AppEvent;
 
 @RestController
 @RequestMapping(value = "/forEventCommonTest")
@@ -26,8 +30,10 @@ public class EventCommonController {
 	protected AppConfigDao appConfigDao;
 
 	@Autowired
-	protected AppConfigMybatisDao appConfigMybatisDao;
+	private AppEventDao appEventDao;
 
+	@Autowired
+	protected AppConfigMybatisDao appConfigMybatisDao;
 
 	@RequestMapping(value = { "", "/" }, produces = "text/html; charset=utf-8")
 	public ModelAndView visitEventCommonPage(@RequestParam(defaultValue = "") String code) throws IOException {
@@ -58,5 +64,14 @@ public class EventCommonController {
 		return AppConfigs;
 	}
 
+	@RequestMapping(value = "/testAop", produces = "application/json; charset=utf-8", method = RequestMethod.GET)
+	public void testAop() throws IOException {
+		AppEvent appEvent = new AppEvent();
+		Map<String, Object> testPayLoad = new HashMap<>();
+		testPayLoad.put("test", "test");
+		appEvent.setPayload(testPayLoad);
+		appEventDao.save(appEvent);
+		log.info("appEvent are,{}", appEvent);
+	}
 
 }

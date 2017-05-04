@@ -37,7 +37,7 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-		<!-- mysql (jdbc)-->
+		<!-- mysql (jdbc) -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -120,7 +120,7 @@
 			<artifactId>mongo-java-driver</artifactId>
 			<version>3.0.3</version>
 		</dependency>
-		
+
 		<!-- for MongoDB -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
@@ -191,17 +191,30 @@
 			<artifactId>freemarker</artifactId>
 			<version>${freemarker.version}</version>
 		</dependency>
-		
+
 		<!-- aop -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${aspectj.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 			<version>${aspectj.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
 		</dependency>
 
 	</dependencies>
