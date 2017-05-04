@@ -14,7 +14,7 @@
 
 	<context:component-scan base-package="com.ysh.event.common.*" />
 
-	<aop:aspectj-autoproxy />
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
 	
 	<bean id="configUtils" class="com.ysh.event.common.utils.ConfigUtils" />
 
